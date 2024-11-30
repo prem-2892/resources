@@ -1,0 +1,54 @@
+/* ScrollSnapContainer.scss */
+
+// replace the COLORS and width for individual use
+
+#scroll-snap-container.scroll-snap-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+
+  button {
+    background-color: t('CARD_TWO');
+    color: white;
+    border: none;
+    padding: 0.5rem;
+    cursor: pointer;
+    border-radius: 5px;
+    margin: 0 10px;
+    display: flex;
+  }
+
+  .scroll-button {
+    &.disabled {
+      display: none;
+    }
+  }
+
+  .scroll-snap-content {
+    width: 100%;
+    display: flex;
+    gap: 1rem;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scroll-behavior: smooth;
+
+    /* Hide scrollbar in a cross-browser way */
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    & {
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+    }
+
+    .scroll-snap-item {
+      scroll-snap-align: start;
+      align-items: center;
+      flex-shrink: 0; // Prevent shrinking
+    }
+  }
+}
